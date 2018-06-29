@@ -12,15 +12,15 @@ public class Windows extends Module{
 	public void setSmartHome(){
 		addWindows();
 	}
-	public void actOpen(){
+	public String actOpen(){
 		if(this.open == false)
 			this.open = true;
-		System.out.println("Window is open!");
+		return "Window is open!\n";
 	}
-	public void actClose(){
+	public String actClose(){
 		if(this.open == true)
 			this.open = false;
-		System.out.println("Window is close!");
+		return "Window is close!\n";
 	}
 
 

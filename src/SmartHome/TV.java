@@ -13,15 +13,15 @@ public class TV extends Module{
 	public void setSmartHome(){
 		addTV();
 	}
-	public void actOpen(){
+	public String actOpen(){
 		if(this.open == false)
 			this.open = true;
-		System.out.println("TV is open!");
+		return "TV is open!\n";
 	}
-	public void actClose(){
+	public String actClose(){
 		if(this.open == true)
 			this.open = false;
-		System.out.println("TV is close!");
+		return "TV is close!\n";
 	}
 
 

@@ -1,5 +1,8 @@
 package Command;
 
+import SmartHome.Module;
+
 public abstract class ICommand {
-	public abstract void execute();
+	protected Module module;
+	public abstract String execute();
 }

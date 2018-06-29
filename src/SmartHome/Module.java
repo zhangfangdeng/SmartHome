@@ -14,11 +14,13 @@ public class Module extends SmartHome{
 		mySmartHome.setSmartHome();
 		
 	}
-	public void actOpen(){
+	public String actOpen(){
 		//System.out.println("Module open!");
+		return "Module open!";
 	}
-	public void actClose(){
+	public String actClose(){
 		//System.out.println("Module close!");
+		return "Module close";
 	}
 
 	@Override

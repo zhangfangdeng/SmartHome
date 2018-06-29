@@ -76,61 +76,53 @@ public class test {
 				this.tvctrcon = true;
 			}
 		}
-		public String AirPurifierOpen(){
+
+		public String AirPurifierControl(String control){
 			if(apctrcon == false)
 				return "ERROR!Air purifier is not contributed!\n";
 			else{
-				ICommand iCommandAirOpen = new ConcreteCommandOpen(airPurifier);
-				iCommandAirOpen.execute();
-				return "Air purifier is open!\n";
+				ICommand iCommandAirControl = null;
+				if(control.equals("open")){
+					iCommandAirControl = new ConcreteCommandOpen(airPurifier);
+				}
+				if(control.equals("close")){
+					iCommandAirControl = new ConcreteCommandClose(airPurifier);
+				}
+				airPurifierController.setCommand(iCommandAirControl);
+				return airPurifierController.runCommand();	
 			}
 		}
-		public String AirPurifierClose(){
-			if(apctrcon == false)
-				return "ERROR!Air purifier is not contributed!\n";
-			else{
-				ICommand iCommandAirClose = new ConcreteCommandClose(airPurifier);
-				iCommandAirClose.execute();
-				return "Air purifier is close!\n";
-			}
-		}
-		public String WindowsOpen(){
+		public String WindowsControl(String control){
 			if(winctrcon == false)
 				return "ERROR!Window is not contributed!\n";
 			else{
-			ICommand iCommandWinOpen = new ConcreteCommandOpen(window);
-			iCommandWinOpen.execute();
-			return "Window is open!\n";
+				ICommand iCommandWindowsControl = null;
+				if(control.equals("open")){
+					iCommandWindowsControl = new ConcreteCommandOpen(window);
+				}
+				if(control.equals("close")){
+					iCommandWindowsControl = new ConcreteCommandClose(window);
+				}
+				windowsController.setCommand(iCommandWindowsControl);
+				return windowsController.runCommand();	
 			}
 		}
-		public String TVOpen(){
+		public String TVControl(String control){
 			if(tvctrcon == false)
 				return "ERROR!TV is not contributed!\n";
 			else{
-			ICommand iCommandTVOpen = new ConcreteCommandOpen(this.tv);
-			iCommandTVOpen.execute();
-			return "TV is open!\n";
+				ICommand iCommandTVControl = null;
+				if(control.equals("open")){
+					iCommandTVControl = new ConcreteCommandOpen(tv);
+				}
+				if(control.equals("close")){
+					iCommandTVControl = new ConcreteCommandClose(tv);
+				}
+				windowsController.setCommand(iCommandTVControl);
+				return windowsController.runCommand();	
 			}
 		}
-		public String WindowsClose(){
-			if(winctrcon == false)
-				return "ERROR!Window is not contributed!\n";
-			else{
-			ICommand iCommandWinClose = new ConcreteCommandClose(window);
-			iCommandWinClose.execute();
-			return "Window is close!\n";
-			}
-		}
-		public String TVClose(){
-			if(tvctrcon == false)
-				return "ERROR!TV is not contributed!\n";
-			else{
-			ICommand iCommandTVClose = new ConcreteCommandClose(this.tv);
-			iCommandTVClose.execute();
-			return "TV is close!\n";
-			}
-		}
-	
+		
 	}
 
 

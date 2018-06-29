@@ -14,15 +14,15 @@ public class AirPurifier extends Module{
 		addAirPurifier();
 	}
 	
-	public void actOpen(){
+	public String actOpen(){
 		if(this.open == false)
 			this.open = true;
-		System.out.println("AirPurifier is open!");
+		return "AirPurifier is open!\n";
 	}
-	public void actClose(){
+	public String actClose(){
 		if(this.open == true)
 			this.open = false;
-		System.out.println("AirPurifier is close!");
+		return "AirPurifier is close!\n";
 	}
 
 

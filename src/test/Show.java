@@ -126,51 +126,57 @@ public class Show {
 	    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    f.setVisible(true);
 	    
-	    //确认键响应函数
+	    //确认键响应
 	    b1.addActionListener(new ActionListener(){
 	 	public void actionPerformed(ActionEvent e) {
 	    contributeSmartHome(AirCheckBox.isSelected(),AirPurifierCheckBox.isSelected(),WindowsCheckBox.isSelected(),TVCheckBox.isSelected(),text);
 	    contributeController(AirPurifierCheckBox.isSelected(),WindowsCheckBox.isSelected(),TVCheckBox.isSelected(),text);
 	    	}
 	    });
+	    //取消键响应
 	    b2.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		data += "Cancel\n";
 	    		text.setText(data);
 	    	}
 	    });
-	    
+	    //AirPurifier打开响应
 	    apo.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		AirPurifierOpen(text);
 	    	}
 	    });
+	    //AirPurifier关闭响应
 	    apc.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		AirPurifierClose(text);
 	    	}
 	    });
+	    //Window打开响应
 	    wino.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		WindowsOpen(text);
 	    	}
 	    });
+	    //Window关闭响应
 	    winc.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		WindowsClose(text);
 	    	}
 	    });
+	    //TV打开响应
 	    tvo.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		TVOpen(text);
 	    	}
 	    });
+	    //TV关闭响应
 	    tvc.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		TVClose(text);
 	    	}
 	    });
-	    
+	    //pm2.5输入确认
 	    in.addActionListener(new ActionListener(){
 	    	public void actionPerformed(ActionEvent e){
 	    		if(Integer.parseInt(tfName.getText())>250){
@@ -214,33 +220,33 @@ public class Show {
 	}
 	
 	public void AirPurifierOpen(JTextArea text){
-		data += test.AirPurifierOpen();
+		data += test. AirPurifierControl("open");
 		text.setText(data);
 		
 	}
 	public void AirPurifierClose(JTextArea text){
-		data+=test.AirPurifierClose();
+		data+=test.AirPurifierControl("close");
 		text.setText(data);
 		
 	}
 	public void WindowsOpen(JTextArea text){
 
-		data+=test.WindowsOpen();
+		data+=test.WindowsControl("open");
 		text.setText(data);
 		
 	}
 	public void WindowsClose(JTextArea text){
 		
-		data+=test.WindowsClose();
+		data+=test.WindowsControl("close");
 		text.setText(data);
 	}
 	public void TVOpen(JTextArea text){
-		data+=test.TVOpen();
+		data+=test.TVControl("open");
 		text.setText(data);
 		
 	}
 	public void TVClose(JTextArea text){	
-		data+=test.TVClose();
+		data+=test.TVControl("close");
 		text.setText(data);
 		
 	}
